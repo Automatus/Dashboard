@@ -19,7 +19,6 @@ def dashplot(values, i):
     The HTML page will autorefresh and show a new chart each time.
     """
 
-
     # Generate and save chart
     fig, ax = plt.subplots()
     fig.patch.set_alpha(0)
@@ -38,7 +37,13 @@ def dashplot(values, i):
     plt.savefig("img/chart" + str(i))
 
     # Generate and save HTML
-    texta = '<!DOCTYPE html> <html><head><meta charset="UTF-8"><title>Automatus Dashboard</title><style></style></head><body><header><h1>Automatus Dashboard</h1><img src="img/chart'
+    texta = ('<!DOCTYPE html> <html>'
+             '<head><meta charset="UTF-8">'
+             '<title>Automatus Dashboard</title>'
+             '<style></style>'
+             '</head><body><header>'
+             '<h1>Automatus Dashboard</h1>'
+             '<img src="img/chart')
     textc = '.png" alt="Chart"></header></body> </html>'
 
     file = open("index.html", "w")
