@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 setup a server to be able to use the dashboard from another pc in the network.
-create a folder called img
+create a folder called img and a subfolder called charts
 @author: automatus
 """
 
@@ -34,7 +34,7 @@ def dashplot(values, i):
     ax.set_title("Error for each try", color="grey")
     ax.plot(list(range(len(values))), values)
     # src list range: https://stackoverflow.com/questions/11480042/python-3-turn-range-to-a-list
-    plt.savefig("img/charts/chart" + str(i))
+    plt.savefig("/var/www/img/charts/chart" + str(i))
 
     # Generate and save HTML
     texta = ('<!DOCTYPE html> <html>'
@@ -47,12 +47,12 @@ def dashplot(values, i):
     # src autorefresh: https://stackoverflow.com/questions/8711888/auto-refresh-code-in-html-using-meta-tags
     textc = '.png" alt="Chart"></header></body> </html>'
 
-    file = open("index.html", "w")
+    file = open("/var/www/html/index.html", "w")
     file.write(texta + str(i) + textc)
     file.close()
 
 
-shutil.rmtree("img/charts")
-os.makedirs("img/charts")
+shutil.rmtree("/var/www/img/charts")
+os.makedirs("/var/www/img/charts")
 values = [0.5, 5, 1, 5, 8, 0.5, 40, 35, 20, 0, 10, 12, 13, 15 , 16, 18, 19]
 dashplot(values, 1)
