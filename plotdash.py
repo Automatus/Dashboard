@@ -34,7 +34,7 @@ def dashplot(values, i):
     ax.set_title("Error for each try", color="grey")
     ax.plot(list(range(len(values))), values)
     # src list range: https://stackoverflow.com/questions/11480042/python-3-turn-range-to-a-list
-    plt.savefig("img/chart/chart" + str(i))
+    plt.savefig("img/charts/chart" + str(i))
 
     # Generate and save HTML
     texta = ('<!DOCTYPE html> <html>'
@@ -43,7 +43,7 @@ def dashplot(values, i):
              '<style>body {text-align: center; background-image: url(""); background-size: cover;}</style>'
              '</head><body><header>'
              '<h1>Automatus Dashboard</h1>'
-             '<img src="img/chart')
+             '<img src="img/charts/chart')
     # src autorefresh: https://stackoverflow.com/questions/8711888/auto-refresh-code-in-html-using-meta-tags
     textc = '.png" alt="Chart"></header></body> </html>'
 
