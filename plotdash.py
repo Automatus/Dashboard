@@ -24,26 +24,27 @@ def dashplot(values, i):
     fig.patch.set_alpha(0)
     ax.patch.set_alpha(0)
     # src https://www.science-emergence.com/Articles/How-to-change-the-color-background-of-a-matplotlib-figure-/
-    ax.spines['bottom'].set_color('white')
-    ax.spines['top'].set_color('white')
-    ax.spines['right'].set_color('white')
-    ax.spines['left'].set_color('white')
-    ax.tick_params(axis='x', colors='yellow')
-    ax.tick_params(axis='y', colors='yellow')
+    ax.spines['bottom'].set_color('grey')
+    ax.spines['top'].set_color('grey')
+    ax.spines['right'].set_color('grey')
+    ax.spines['left'].set_color('grey')
+    ax.tick_params(axis='x', colors='black')
+    ax.tick_params(axis='y', colors='black')
     # src https://stackoverflow.com/questions/1982770/matplotlib-changing-the-color-of-an-axis#12059429
-    ax.set_title("Error for each try", color="yellow")
+    ax.set_title("Error for each try", color="grey")
     ax.plot(list(range(len(values))), values)
     # src list range: https://stackoverflow.com/questions/11480042/python-3-turn-range-to-a-list
     plt.savefig("img/chart" + str(i))
 
     # Generate and save HTML
     texta = ('<!DOCTYPE html> <html>'
-             '<head><meta charset="UTF-8">'
+             '<head><meta charset="UTF-8"><meta http-equiv="refresh" content="5">'
              '<title>Automatus Dashboard</title>'
-             '<style></style>'
+             '<style>body {text-align: center; background-image: url(""); background-size: cover;}</style>'
              '</head><body><header>'
              '<h1>Automatus Dashboard</h1>'
              '<img src="img/chart')
+    # src autorefresh: https://stackoverflow.com/questions/8711888/auto-refresh-code-in-html-using-meta-tags
     textc = '.png" alt="Chart"></header></body> </html>'
 
     file = open("index.html", "w")
@@ -51,7 +52,7 @@ def dashplot(values, i):
     file.close()
 
 
-shutil.rmtree("img")
-os.makedirs("img")
-values = [0.5, 0]
+shutil.rmtree("img/charts")
+os.makedirs("img/charts")
+values = [0.5, 5, 1, 5, 8, 0.5, 40, 35, 20, 0, 10, 12, 13, 15 , 16, 18, 19]
 dashplot(values, 1)
