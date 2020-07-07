@@ -34,7 +34,7 @@ def dashplot(values, i):
     ax.set_title("Error for each try", color="grey")
     ax.plot(list(range(len(values))), values)
     # src list range: https://stackoverflow.com/questions/11480042/python-3-turn-range-to-a-list
-    plt.savefig("img/chart" + str(i))
+    plt.savefig("img/chart/chart" + str(i))
 
     # Generate and save HTML
     texta = ('<!DOCTYPE html> <html>'
